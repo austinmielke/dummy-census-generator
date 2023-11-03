@@ -9,7 +9,7 @@ function Form({ formData, setFormData, setMembers, handleGenerateMembers }) {
     setMembers([])
     setFormData({
       number: 10,
-      dependents: true
+      includeDependents: true
     })
   }
 
@@ -23,7 +23,7 @@ function Form({ formData, setFormData, setMembers, handleGenerateMembers }) {
   const handleCheckChange = (e) => {
     setFormData({
       ...formData,
-      dependents: e.target.checked
+      includeDependents: e.target.checked
     })
   }
 
@@ -50,7 +50,7 @@ function Form({ formData, setFormData, setMembers, handleGenerateMembers }) {
             <input
               name="dependents"
               type="checkbox"
-              checked={formData.dependents}
+              checked={formData.includeDependents}
               className="checkbox ml-4 mr-auto"
               onChange={handleCheckChange}
             />

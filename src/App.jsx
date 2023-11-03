@@ -4,14 +4,14 @@ import Table from './Table'
 import generateMembers from './generateMembers'
 
 function App() {
-  const [members, setMembers] = useState([1])
+  const [members, setMembers] = useState([])
   const [formData, setFormData] = useState({
     number: 10,
-    dependents: true
+    includeDependents: true
   })
 
-  const handleGenerateMembers = ({ number, dependents }) => {
-    setMembers(generateMembers(number, dependents))
+  const handleGenerateMembers = ({ number, includeDependents }) => {
+    setMembers(generateMembers(number, includeDependents))
   }
 
   return (

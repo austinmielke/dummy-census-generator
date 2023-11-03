@@ -33,29 +33,31 @@ function Table({ members }) {
           </thead>
           <tbody>
             {members.map((member) => (
-              <tr>
-                <td>{member.ssn}</td>
-                <td>{member.relationship}</td>
-                <td>{member.ssn}</td>
-                <td>{member.firstName}</td>
-                <td>{member.middleName}</td>
-                <td>{member.lastName}</td>
-                <td>{member.dob}</td>
-                <td>{member.sex}</td>
-                <td>{member.genderIdentity}</td>
-                <td>{member.address1}</td>
-                <td>{member.address2}</td>
-                <td>{member.city}</td>
-                <td>{member.state}</td>
-                <td>{member.zipCode}</td>
-                <td>{member.phone}</td>
-                <td>{member.email}</td>
-                <td>{member.employmentStatus}</td>
-                <td>{member.hireDate}</td>
-                <td>{member.hoursPerWeek}</td>
-                <td>{member.salaryEffectiveDate}</td>
-                <td>{member.salary}</td>
-              </tr>
+              <Fragment key={member.ssn}>
+                <tr>
+                  <td>{member.employeeSsn}</td>
+                  <td>{member.relationship}</td>
+                  <td>{member.ssn}</td>
+                  <td>{member.firstName}</td>
+                  <td>{member.middleName}</td>
+                  <td>{member.lastName}</td>
+                  <td>{member.dob}</td>
+                  <td>{member.sex}</td>
+                  <td>{member.genderIdentity}</td>
+                  <td>{member.address1}</td>
+                  <td>{member.address2}</td>
+                  <td>{member.city}</td>
+                  <td>{member.state}</td>
+                  <td>{member.zipCode}</td>
+                  <td>{member.phone}</td>
+                  <td>{member.email}</td>
+                  <td>{member.employmentStatus}</td>
+                  <td>{member.hireDate}</td>
+                  <td>{member.hoursPerWeek}</td>
+                  <td>{member.salaryEffectiveDate}</td>
+                  <td>{member.salary}</td>
+                </tr>
+              </Fragment>
             ))}
           </tbody>
         </table>
