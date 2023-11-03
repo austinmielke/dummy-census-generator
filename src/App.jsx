@@ -23,7 +23,7 @@ function App() {
         setMembers={setMembers}
         handleGenerateMembers={handleGenerateMembers}
       />
-      {members.length > 0 && <Table />}
+      {members.length > 0 && <Table members={members} />}
     </div>
   )
 }

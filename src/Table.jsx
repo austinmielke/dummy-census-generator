@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 
-function Table() {
+function Table({ members }) {
   return (
     <Fragment>
       <button className="btn btn-info mb-4">Download as CSV</button>
@@ -32,14 +32,31 @@ function Table() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Littel, Schaden and Vandervort</td>
-              <td>Canada</td>
-              <td>12/16/2020</td>
-              <td>Blue</td>
-            </tr>
+            {members.map((member) => (
+              <tr>
+                <td>{member.ssn}</td>
+                <td>{member.relationship}</td>
+                <td>{member.ssn}</td>
+                <td>{member.firstName}</td>
+                <td>{member.middleName}</td>
+                <td>{member.lastName}</td>
+                <td>{member.dob}</td>
+                <td>{member.sex}</td>
+                <td>{member.genderIdentity}</td>
+                <td>{member.address1}</td>
+                <td>{member.address2}</td>
+                <td>{member.city}</td>
+                <td>{member.state}</td>
+                <td>{member.zipCode}</td>
+                <td>{member.phone}</td>
+                <td>{member.email}</td>
+                <td>{member.employmentStatus}</td>
+                <td>{member.hireDate}</td>
+                <td>{member.hoursPerWeek}</td>
+                <td>{member.salaryEffectiveDate}</td>
+                <td>{member.salary}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

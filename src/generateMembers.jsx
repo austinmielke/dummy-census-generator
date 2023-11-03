@@ -29,13 +29,13 @@ const generateMembers = (number, dependents) => {
           : '',
       state,
       zipCode: faker.location.zipCode({ state }),
-      phone: faker.phone.number(),
+      phone: faker.phone.number('###-###-####'),
       email: faker.internet.email({
         firstName,
         lastName,
         allowSpecialCharacters: false
       }),
-      employment: 'Active',
+      employmentStatus: 'Active',
       hireDate,
       hoursPerWeek: 40,
       salaryEffectiveDate: hireDate,
