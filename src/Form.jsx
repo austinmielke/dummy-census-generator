@@ -1,34 +1,34 @@
-function Form({ form, setForm, setMembers }) {
+function Form({ formData, setFormData, setMembers, handleGenerateMembers }) {
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(form)
+    handleGenerateMembers(formData)
   }
 
   const handleReset = (e) => {
     e.preventDefault()
     setMembers([])
-    setForm({
+    setFormData({
       number: 10,
       dependents: true
     })
   }
 
   const handleNumberChange = (e) => {
-    setForm({
-      ...form,
+    setFormData({
+      ...formData,
       number: parseInt(e.target.value)
     })
   }
 
   const handleCheckChange = (e) => {
-    setForm({
-      ...form,
+    setFormData({
+      ...formData,
       dependents: e.target.checked
     })
   }
 
   return (
-    <form className="card mx-auto mb-16 w-96 bg-neutral text-neutral-content">
+    <form className="card mx-auto mb-12 w-96 bg-neutral text-neutral-content">
       <div className="card-body">
         <div className="form-control w-full max-w-xs">
           <label className="label">
@@ -36,7 +36,7 @@ function Form({ form, setForm, setMembers }) {
             <input
               name="number"
               type="number"
-              value={form.number}
+              value={formData.number}
               min="1"
               max="100"
               className="input input-bordered w-full max-w-xs"
@@ -50,7 +50,7 @@ function Form({ form, setForm, setMembers }) {
             <input
               name="dependents"
               type="checkbox"
-              checked={form.dependents}
+              checked={formData.dependents}
               className="checkbox ml-4 mr-auto"
               onChange={handleCheckChange}
             />
