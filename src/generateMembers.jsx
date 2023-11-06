@@ -51,7 +51,7 @@ const generateMembers = (number, includeDependents) => {
 
     if (includeDependents) {
       const dependentChance = Math.floor(Math.random() * 3)
-      console.log(dependentChance)
+
       // Spouse
       if (dependentChance === 0 || dependentChance === 2) {
         const sex = faker.person.sex()
@@ -63,10 +63,12 @@ const generateMembers = (number, includeDependents) => {
           firstName: faker.person.firstName(sex),
           middleName: faker.person.middleName(sex),
           lastName,
-          dob: faker.date.birthdate({
-            min: new Date(member.dob).getFullYear() - 5,
-            max: new Date(member.dob).getFullYear() + 5
-          }),
+          dob: new Date(
+            faker.date.birthdate({
+              min: new Date(member.dob).getFullYear() - 5,
+              max: new Date(member.dob).getFullYear() + 5
+            })
+          ).toLocaleDateString('en-US'),
           sex: sex.slice(0, 1).toUpperCase(),
           genderIdentity: sex.slice(0, 1).toUpperCase() + sex.slice(1),
           address1: member.address1,
@@ -91,11 +93,13 @@ const generateMembers = (number, includeDependents) => {
             firstName: faker.person.firstName(sex),
             middleName: faker.person.middleName(sex),
             lastName,
-            dob: faker.date.birthdate({
-              min: 1,
-              max: 26,
-              mode: 'age'
-            }),
+            dob: new Date(
+              faker.date.birthdate({
+                min: 1,
+                max: 26,
+                mode: 'age'
+              })
+            ).toLocaleDateString('en-US'),
             sex: sex.slice(0, 1).toUpperCase(),
             genderIdentity: sex.slice(0, 1).toUpperCase() + sex.slice(1),
             address1: member.address1,

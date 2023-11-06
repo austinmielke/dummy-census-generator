@@ -57,6 +57,34 @@ function Table({ members }) {
                   <td>{member.salaryEffectiveDate}</td>
                   <td>{member.salary}</td>
                 </tr>
+                {member.dependents.length > 0 &&
+                  member.dependents.map((dependent) => (
+                    <Fragment key={dependent.ssn}>
+                      <tr>
+                        <td>{member.employeeSsn}</td>
+                        <td>{dependent.relationship}</td>
+                        <td>{dependent.ssn}</td>
+                        <td>{dependent.firstName}</td>
+                        <td>{dependent.middleName}</td>
+                        <td>{dependent.lastName}</td>
+                        <td>{dependent.dob}</td>
+                        <td>{dependent.sex}</td>
+                        <td>{dependent.genderIdentity}</td>
+                        <td>{dependent.address1}</td>
+                        <td>{dependent.address2}</td>
+                        <td>{dependent.city}</td>
+                        <td>{dependent.state}</td>
+                        <td>{dependent.zipCode}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </Fragment>
+                  ))}
               </Fragment>
             ))}
           </tbody>
