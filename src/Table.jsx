@@ -1,9 +1,19 @@
 import { Fragment } from 'react'
+import { useCSVDownloader } from 'react-papaparse'
+import generateCSVData from './generateCSVData'
 
 function Table({ members }) {
+  const { CSVDownloader } = useCSVDownloader()
+
   return (
     <Fragment>
-      <button className="btn btn-info mb-4">Download as CSV</button>
+      <CSVDownloader
+        type={'button'}
+        filename={'DummyCenus'}
+        data={generateCSVData(members)}
+      >
+        <div className="btn btn-info mb-4">Download as CSV</div>
+      </CSVDownloader>
       <div className="mb-4 h-[400px] overflow-x-auto">
         <table className="table table-zebra table-pin-rows table-xs">
           <thead>
@@ -26,7 +36,6 @@ function Table({ members }) {
               <th>Primary Email</th>
               <th>Employment</th>
               <th>Hire Date</th>
-              <th>Hours per Week</th>
               <th>Salary Effective Date</th>
               <th>Annual Base Salary</th>
             </tr>
@@ -53,7 +62,6 @@ function Table({ members }) {
                   <td>{member.email}</td>
                   <td>{member.employmentStatus}</td>
                   <td>{member.hireDate}</td>
-                  <td>{member.hoursPerWeek}</td>
                   <td>{member.salaryEffectiveDate}</td>
                   <td>{member.salary}</td>
                 </tr>
@@ -75,7 +83,6 @@ function Table({ members }) {
                         <td>{dependent.city}</td>
                         <td>{dependent.state}</td>
                         <td>{dependent.zipCode}</td>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

@@ -27,6 +27,7 @@ const generateMembers = (number, includeDependents) => {
         Math.round(Math.random() * 3) === 0
           ? faker.location.secondaryAddress()
           : '',
+      city: faker.location.city(),
       state,
       zipCode: faker.location.zipCode({ state }),
       phone: faker.phone.number('###-###-####'),
@@ -37,7 +38,6 @@ const generateMembers = (number, includeDependents) => {
       }),
       employmentStatus: 'Active',
       hireDate,
-      hoursPerWeek: 40,
       salaryEffectiveDate: hireDate,
       salary: (
         Math.round(faker.number.int({ min: 50000, max: 150000 }) / 1000) * 1000
